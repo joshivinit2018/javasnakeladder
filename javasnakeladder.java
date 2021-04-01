@@ -1,32 +1,43 @@
 public class javasnakeladder {
+	
+	
+	static final int NoPlay = 0;
+	static final int Ladder = 1;
+	static final int Snake = 2;
+	static int Sum = 0;
 
-	//Constants
-	public static final int NO_PLAY = 0;
-	public static final int LADDER = 1;
-	public static final int SNAKE = 2;
-
+	
 	public static void main(String[] args) {
+	int die;
+	
+	while (Sum < 100)	{
+	//using random function
+	die=(int)(Math.random()*6) + 1;
 
-		//Dice Roll
-		int diceRoll = 1 + (int)( (Math.random() * 10) % 6);
-		System.out.println("The Dice Rolled to: " + diceRoll);
+		System.out.println("start position is zero");
+		System.out.println("The Player rolls the die no is "+die);
+	
+		int opt = (int) Math.floor(Math.random() * 10) % 3;
 
-		//Option Check
-		int option = (int) ( (Math.random() * 10) % 3 );
-		switch(option) {
-			case NO_PLAY:
-				System.out.println("The option was to no play, hence the player will not advance");
-				break;
-			case LADDER:
-				System.out.println("The option came to Ladder, the player move forward: " + diceRoll + " steps");
-				break;
-			case SNAKE:
-				System.out.println("The option came to Snake, the player will backward: " + diceRoll + " steps");
-				break;
-			default:
-				System.out.println("Some error occured, default case");
-				break;
-
-		}
+		if (opt == Ladder) {
+			Sum = Sum + die;
+			System.out.println("Ladder");
+}
+		else if (opt == Snake) {
+			
+			if (Sum > 0 && (Sum - die) >=0){
+			Sum = Sum - die;
+			System.out.println("Snake");
 	}
+}
+else {
+			System.out.println("No play");
+
+}
+
+}
+
+
+}
+
 }
