@@ -8,6 +8,7 @@ import java.util.Random;
 
     public static int throwDie() 
     {
+			diceRollCount++;
 			Random random=new Random();
       	  int value = random.nextInt(6)+1;
 	return value;
